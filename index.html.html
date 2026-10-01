@@ -1,0 +1,1230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>English Learning: Celebrating Independence Day (Time Connectives)</title>
+    
+    <style>
+        :root {
+            /* Color Palette */
+            --cream-bg: #fdfbf7;
+            --cream-card: #fef9c3;
+            --pink-main: #f472b6;
+            --pink-dark: #db2777;
+            --pink-light: #fce7f3;
+            --green-main: #4ade80;
+            --green-dark: #16a34a;
+            --green-light: #dcfce7;
+            --text-dark: #334155;
+            --text-light: #64748b;
+            --white: #ffffff;
+            --gray-100: #f1f5f9;
+            --gray-200: #e2e8f0;
+            --gray-300: #cbd5e1;
+            
+            --shadow-sm: 0 2px 4px rgba(0,0,0,0.05);
+            --shadow-md: 0 4px 15px rgba(0,0,0,0.1);
+            --shadow-lg: 0 10px 25px rgba(0,0,0,0.05);
+            
+            --radius-md: 0.75rem;
+            --radius-lg: 1rem;
+            --radius-full: 9999px;
+            
+            /* Student Form Colors */
+            --blue-light: #e0f2fe;
+            --blue-main: #38bdf8;
+            --blue-dark: #0284c7;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--cream-bg);
+            color: var(--text-dark);
+            line-height: 1.6;
+            overflow-x: hidden;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        /* Layout & Typography */
+        .container {
+            max-w-width: 900px;
+            width: 100%;
+            margin: 0 auto;
+            padding: 1.5rem;
+            flex-grow: 1;
+        }
+
+        h1, h2, h3 { font-weight: 700; line-height: 1.2; }
+        h1 { font-size: 1.5rem; }
+        h2 { font-size: 1.75rem; margin-bottom: 1rem; }
+        h3 { font-size: 1.25rem; margin-bottom: 0.5rem; }
+        p { margin-bottom: 1rem; color: var(--text-light); }
+        
+        .text-center { text-align: center; }
+        .font-bold { font-weight: bold; }
+        
+        @keyframes waveLeftArm {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(-35deg); }
+        }
+        @keyframes waveRightArm {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(35deg); }
+        }
+        @keyframes floatBubble {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-8px); }
+        }
+
+        /* Components */
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-lg);
+            border: 1px solid rgba(244, 114, 182, 0.2);
+            padding: 2rem;
+            margin-bottom: 2rem;
+            display: none; /* Hidden by default for JS navigation */
+        }
+
+        .glass-panel.active {
+            display: block;
+            animation: fadeIn 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0.75rem 1.5rem;
+            border-radius: var(--radius-full);
+            font-weight: bold;
+            font-size: 1.1rem;
+            cursor: pointer;
+            border: none;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            gap: 0.5rem;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--pink-main), var(--pink-dark));
+            color: var(--white);
+            box-shadow: 0 4px 15px rgba(219, 39, 119, 0.3);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(219, 39, 119, 0.5);
+        }
+
+        .btn-secondary {
+            background: linear-gradient(135deg, var(--green-main), var(--green-dark));
+            color: var(--white);
+            box-shadow: 0 4px 15px rgba(22, 163, 74, 0.3);
+        }
+
+        .btn-secondary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(22, 163, 74, 0.5);
+        }
+
+        .btn-outline {
+            background: var(--gray-200);
+            color: var(--text-dark);
+        }
+        .btn-outline:hover { background: var(--gray-300); }
+
+        /* Header */
+        header {
+            background: var(--white);
+            box-shadow: var(--shadow-sm);
+            border-bottom: 2px solid var(--pink-light);
+            position: sticky;
+            top: 0;
+            z-index: 50;
+            padding: 1rem 0;
+        }
+
+        .header-content {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        /* Progress Tabs */
+        .progress-nav {
+            display: flex;
+            justify-content: space-between;
+            position: relative;
+            margin-bottom: 2rem;
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .progress-line-bg {
+            position: absolute;
+            top: 50%;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: var(--gray-200);
+            transform: translateY(-50%);
+            z-index: 1;
+        }
+
+        .progress-line-fill {
+            position: absolute;
+            top: 50%;
+            left: 0;
+            height: 4px;
+            background: var(--pink-main);
+            transform: translateY(-50%);
+            z-index: 2;
+            transition: width 0.5s ease;
+        }
+
+        .tab-btn {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            border: none;
+            background: var(--gray-200);
+            color: var(--text-light);
+            font-weight: bold;
+            z-index: 3;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .tab-btn.active {
+            background: var(--pink-main);
+            color: var(--white);
+            box-shadow: 0 0 10px rgba(244, 114, 182, 0.5);
+            transform: scale(1.1);
+        }
+
+        /* Interactive Image Area */
+        .interactive-scene-container {
+            background: var(--white);
+            border-radius: var(--radius-lg);
+            border: 2px solid var(--pink-light);
+            overflow: hidden;
+            margin-bottom: 2rem;
+            box-shadow: var(--shadow-md);
+        }
+
+        .scene-display {
+            height: 250px;
+            background: linear-gradient(to bottom, #87CEEB, #e0f6ff);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            transition: all 0.5s ease;
+        }
+
+        .scene-emoji {
+            font-size: 5rem;
+            filter: drop-shadow(0 4px 6px rgba(0,0,0,0.2));
+            animation: bounceIn 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .scene-controls {
+            display: flex;
+            background: var(--gray-100);
+            padding: 0.5rem;
+            gap: 0.5rem;
+            overflow-x: auto;
+        }
+
+        .scene-btn {
+            flex: 1;
+            padding: 0.75rem;
+            border: none;
+            background: var(--white);
+            border-radius: var(--radius-md);
+            font-weight: bold;
+            color: var(--text-light);
+            cursor: pointer;
+            transition: all 0.2s;
+            white-space: nowrap;
+        }
+
+        .scene-btn:hover { background: var(--pink-light); }
+        .scene-btn.active {
+            background: var(--pink-main);
+            color: var(--white);
+        }
+
+        .scene-description {
+            padding: 1.5rem;
+            font-size: 1.1rem;
+            text-align: center;
+            background: var(--white);
+            border-top: 1px solid var(--gray-200);
+        }
+
+        /* Drag and Drop */
+        .word-bank {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            justify-content: center;
+            padding: 1.5rem;
+            background: var(--gray-100);
+            border: 2px dashed var(--gray-300);
+            border-radius: var(--radius-lg);
+            margin-bottom: 2rem;
+        }
+
+        .draggable-item {
+            padding: 0.5rem 1rem;
+            background: var(--pink-light);
+            border: 2px solid var(--pink-main);
+            color: var(--pink-dark);
+            font-weight: bold;
+            border-radius: var(--radius-md);
+            cursor: grab;
+            user-select: none;
+            box-shadow: var(--shadow-sm);
+        }
+        .draggable-item:active { cursor: grabbing; transform: scale(1.05); }
+
+        .story-board {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+        
+        .story-line {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            background: var(--white);
+            padding: 1rem;
+            border-radius: var(--radius-md);
+            border: 1px solid var(--gray-200);
+            flex-wrap: wrap;
+        }
+
+        .drop-zone {
+            width: 120px;
+            height: 40px;
+            background: var(--gray-100);
+            border: 2px dashed var(--gray-300);
+            border-radius: var(--radius-md);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-light);
+            font-size: 0.9rem;
+            transition: all 0.3s;
+        }
+        .drop-zone.drag-over {
+            background: var(--green-light);
+            border-color: var(--green-main);
+        }
+        .drop-zone.filled {
+            background: var(--white);
+            border-style: solid;
+            border-color: var(--green-main);
+            color: var(--green-dark);
+            font-weight: bold;
+            cursor: pointer;
+        }
+        
+        /* Flashcards */
+        .flashcard-wrapper {
+            perspective: 1000px;
+            width: 100%;
+            height: 450px;
+            margin: 2rem 0;
+        }
+
+        .flashcard {
+            width: 100%;
+            height: 100%;
+            position: relative;
+            transition: transform 0.8s cubic-bezier(0.4, 0.2, 0.2, 1);
+            transform-style: preserve-3d;
+        }
+
+        .flashcard.flipped {
+            transform: rotateY(180deg);
+        }
+
+        .card-face {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            border-radius: var(--radius-lg);
+            padding: 2rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            box-shadow: var(--shadow-md);
+        }
+
+        .card-front {
+            background: var(--white);
+            border: 3px solid var(--pink-main);
+        }
+
+        .card-back {
+            background: var(--cream-card);
+            border: 3px solid var(--green-main);
+            transform: rotateY(180deg);
+            align-items: center;
+            text-align: center;
+        }
+
+        .quiz-options {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+            margin-top: 1.5rem;
+        }
+
+        .quiz-option-btn {
+            padding: 1rem;
+            background: var(--gray-100);
+            border: 2px solid var(--gray-200);
+            border-radius: var(--radius-md);
+            text-align: left;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.2s;
+            color: var(--text-dark);
+        }
+
+        .quiz-option-btn:hover {
+            background: var(--pink-light);
+            border-color: var(--pink-main);
+        }
+
+        /* Helpers & Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(15px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes bounceIn {
+            0% { transform: scale(0.3); opacity: 0; }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); opacity: 1; }
+        }
+
+        .flex-between { display: flex; justify-content: space-between; align-items: center; }
+        .mt-4 { margin-top: 1rem; }
+        .mt-8 { margin-top: 2rem; }
+        .badge {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            border-radius: var(--radius-full);
+            background: var(--green-light);
+            color: var(--green-dark);
+            font-size: 0.85rem;
+            font-weight: bold;
+            margin-bottom: 1rem;
+        }
+        .highlight { color: var(--pink-dark); font-weight: bold; }
+        .feedback-box { padding: 1rem; border-radius: var(--radius-md); margin-top: 1rem; font-weight: bold; text-align: center; display: none; }
+        .feedback-box.show { display: block; animation: fadeIn 0.3s; }
+        
+        /* Input Form */
+        .input-group { margin-bottom: 1.5rem; text-align: left; }
+        .input-group label { display: block; margin-bottom: 0.5rem; font-weight: bold; color: var(--text-dark); }
+        .input-group input { width: 100%; padding: 0.75rem; border: 2px solid var(--gray-300); border-radius: var(--radius-md); font-size: 1rem; transition: border-color 0.3s; }
+        .input-group input:focus { outline: none; border-color: var(--pink-main); box-shadow: 0 0 0 3px rgba(244,114,182,0.2); }
+        
+        /* Grid for material */
+        .grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; }
+        .card-mini { background: var(--white); padding: 1.5rem; border-radius: var(--radius-md); box-shadow: var(--shadow-sm); border: 1px solid var(--gray-200); }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="header-content">
+            <div style="display: flex; align-items: center; gap: 1rem;">
+                <div style="width: 45px; height: 45px; background: var(--pink-light); color: var(--pink-dark); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 1.2rem;">
+                    ENG
+                </div>
+                <div>
+                    <h1 style="font-size: 1.2rem;">Module: English VII</h1>
+                    <p style="margin: 0; font-size: 0.8rem; color: var(--green-dark); font-weight: bold;">MTs Muhajirin Biluhu - Kurikulum Merdeka</p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Student Name Modal (Shown before starting) -->
+    <div id="student-modal" style="position: fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.5); z-index: 100; display: flex; align-items:center; justify-content:center; backdrop-filter: blur(5px);">
+        <div style="background: var(--white); padding: 2rem; border-radius: var(--radius-lg); max-width: 400px; width: 90%; box-shadow: var(--shadow-lg); text-align: center; animation: bounceIn 0.5s;">
+            <h2 style="color: var(--pink-dark); margin-bottom: 0.5rem;">Welcome to English Class!</h2>
+            <p style="margin-bottom: 1.5rem;">Please enter your name before we start learning.</p>
+            
+            <div class="input-group">
+                <input type="text" id="student-name" placeholder="Nama Lengkap (Contoh: Budi Santoso)" autocomplete="off">
+            </div>
+            <div class="input-group">
+                <input type="text" id="student-class" placeholder="Kelas (Contoh: VII-A)" autocomplete="off">
+            </div>
+            
+            <button onclick="startModule()" class="btn btn-primary" style="width: 100%;">Let's Go! 🚀</button>
+            <p id="name-error" style="color: red; font-size: 0.85rem; margin-top: 0.5rem; display: none;">Tolong masukkan Nama dan Kelas terlebih dahulu.</p>
+        </div>
+    </div>
+
+    <div class="container">
+        
+        <!-- Progress Navigation -->
+        <div class="progress-nav">
+            <div class="progress-line-bg"></div>
+            <div class="progress-line-fill" id="progress-bar" style="width: 0%;"></div>
+            
+            <button onclick="navTo('intro')" id="tab-intro" class="tab-btn active">1</button>
+            <button onclick="navTo('learn')" id="tab-learn" class="tab-btn">2</button>
+            <button onclick="navTo('practice')" id="tab-practice" class="tab-btn">3</button>
+            <button onclick="navTo('quiz')" id="tab-quiz" class="tab-btn">4</button>
+        </div>
+
+        <!-- SECTION 1: Introduction -->
+        <section id="sec-intro" class="glass-panel active">
+            
+            <div style="display: flex; align-items: center; justify-content: center; gap: 1.5rem; background: var(--white); padding: 1.5rem; border-radius: var(--radius-lg); box-shadow: var(--shadow-sm); border: 2px dashed var(--pink-light); margin-bottom: 2rem; max-width: 500px; margin-left: auto; margin-right: auto; transition: transform 0.3s ease;">
+                <!-- Avatar Container -->
+                <div style="flex-shrink: 0; width: 85px; height: 85px; border-radius: 50%; background: var(--cream-bg); display: flex; align-items: flex-end; justify-content: center; overflow: hidden; border: 3px solid var(--pink-main); box-shadow: 0 4px 10px rgba(244, 114, 182, 0.3);">
+                    <svg width="85" height="85" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" style="margin-bottom: -5px;">
+                        <!-- Hijab Base / Drape -->
+                        <path d="M 15 90 Q 50 110 85 90 L 80 40 C 80 10, 20 10, 20 40 Z" fill="#f472b6" />
+                        <!-- Face (Fair skin) -->
+                        <circle cx="50" cy="42" r="22" fill="#ffe0bd" />
+                        <!-- Inner Hijab -->
+                        <path d="M 30 28 Q 50 20 70 28 Q 50 12 30 28 Z" fill="#db2777" opacity="0.6"/>
+                        <!-- Eyes -->
+                        <circle cx="42" cy="42" r="2.5" fill="#334155" />
+                        <circle cx="58" cy="42" r="2.5" fill="#334155" />
+                        <!-- Cheeks -->
+                        <ellipse cx="35" cy="47" rx="4" ry="2.5" fill="#ffb6c1" opacity="0.8"/>
+                        <ellipse cx="65" cy="47" rx="4" ry="2.5" fill="#ffb6c1" opacity="0.8"/>
+                        <!-- Smile -->
+                        <path d="M 45 50 Q 50 55 55 50" fill="none" stroke="#334155" stroke-width="2.5" stroke-linecap="round"/>
+                        <!-- Hijab Folds -->
+                        <path d="M 28 60 Q 50 85 72 60" fill="none" stroke="#db2777" stroke-width="2" opacity="0.4"/>
+                        <path d="M 35 70 Q 50 90 65 70" fill="none" stroke="#db2777" stroke-width="2" opacity="0.2"/>
+                    </svg>
+                </div>
+                <!-- Profile Details -->
+                <div>
+                    <h3 style="margin: 0; color: var(--pink-dark); font-size: 1.25rem;">Nurfazrina Amu, S.Pd</h3>
+                    <p style="margin: 0; color: var(--green-dark); font-weight: bold; font-size: 0.95rem;">MTs Muhajirin Biluhu</p>
+                    <p style="margin: 0; font-size: 0.85rem; color: var(--text-light); background: var(--pink-light); padding: 0.1rem 0.5rem; border-radius: 4px; display: inline-block; margin-top: 0.25rem;">Guru Bahasa Inggris</p>
+                </div>
+            </div>
+
+            <div class="students-scene" style="text-align: center; margin-bottom: 2rem; position: relative;">
+                <!-- Speech Bubble -->
+                <div style="animation: floatBubble 3s ease-in-out infinite; margin-bottom: 20px;">
+                    <div style="display: inline-block; background: var(--white); padding: 1rem 1.5rem; border-radius: 20px; box-shadow: 0 4px 15px rgba(244, 114, 182, 0.2); border: 2px solid var(--pink-light); position: relative;">
+                        <h2 style="margin: 0; color: var(--pink-dark); font-size: 1.4rem;">"Let's Celebrate Independence Day!" 🎉</h2>
+                        <!-- Tail of the bubble -->
+                        <div style="position: absolute; bottom: -12px; left: 50%; transform: translateX(-50%); width: 0; height: 0; border-left: 12px solid transparent; border-right: 12px solid transparent; border-top: 12px solid var(--pink-light);"></div>
+                        <div style="position: absolute; bottom: -8px; left: 50%; transform: translateX(-50%); width: 0; height: 0; border-left: 10px solid transparent; border-right: 10px solid transparent; border-top: 10px solid var(--white);"></div>
+                    </div>
+                </div>
+
+                <!-- Students Container -->
+                <div style="display: flex; justify-content: center; gap: 1rem; align-items: flex-end;">
+                    <!-- Male Student SVG (MTs Uniform - White Top, Navy Tie, Peci) -->
+                    <svg width="120" height="140" viewBox="0 0 120 140" xmlns="http://www.w3.org/2000/svg" style="filter: drop-shadow(0 4px 6px rgba(0,0,0,0.05)); z-index: 2;">
+                        <!-- Body/Shirt -->
+                        <path d="M 30 140 C 30 100, 90 100, 90 140" fill="#f1f5f9" stroke="#cbd5e1" stroke-width="2"/>
+                        <!-- Collar -->
+                        <path d="M 50 105 L 60 115 L 70 105" fill="none" stroke="#cbd5e1" stroke-width="2"/>
+                        <!-- Tie (Navy Blue) -->
+                        <path d="M 56 110 L 52 135 L 60 140 L 68 135 L 64 110 Z" fill="#1e3a8a"/>
+                        <!-- Face -->
+                        <circle cx="60" cy="65" r="25" fill="#ffe0bd" />
+                        <!-- Eyes -->
+                        <circle cx="50" cy="60" r="3" fill="#334155" />
+                        <circle cx="70" cy="60" r="3" fill="#334155" />
+                        <!-- Smile -->
+                        <path d="M 53 72 Q 60 80 67 72" fill="none" stroke="#334155" stroke-width="2.5" stroke-linecap="round"/>
+                        <!-- Peci (Black Hat) -->
+                        <path d="M 35 45 Q 60 30 85 45 L 82 25 C 70 15, 50 15, 38 25 Z" fill="#1f2937"/>
+                        <!-- Stationary Arm (Right arm visually) -->
+                        <path d="M 85 110 Q 95 120 95 140" fill="none" stroke="#f1f5f9" stroke-width="12" stroke-linecap="round"/>
+                        <!-- Waving Arm (Left arm visually) -->
+                        <g style="transform-origin: 35px 110px; animation: waveLeftArm 1.5s ease-in-out infinite alternate;">
+                            <path d="M 35 110 Q 15 90 20 60" fill="none" stroke="#f1f5f9" stroke-width="13" stroke-linecap="round"/>
+                            <circle cx="20" cy="60" r="7" fill="#ffe0bd"/>
+                        </g>
+                    </svg>
+
+                    <!-- Female Student SVG (MTs Uniform - White Hijab & Top, Navy Inner) -->
+                    <svg width="120" height="140" viewBox="0 0 120 140" xmlns="http://www.w3.org/2000/svg" style="filter: drop-shadow(0 4px 6px rgba(0,0,0,0.05)); z-index: 2;">
+                        <!-- Body/Shirt -->
+                        <path d="M 30 140 C 30 100, 90 100, 90 140" fill="#f8fafc" stroke="#e2e8f0" stroke-width="2"/>
+                        <!-- Hijab Base -->
+                        <path d="M 25 110 Q 60 140 95 110 L 90 55 C 90 20, 30 20, 30 55 Z" fill="#ffffff" stroke="#e2e8f0" stroke-width="2"/>
+                        <!-- Face -->
+                        <circle cx="60" cy="65" r="22" fill="#ffe0bd" />
+                        <!-- Inner Hijab (Navy Blue) -->
+                        <path d="M 42 48 Q 60 35 78 48 Q 60 25 42 48 Z" fill="#1e3a8a" opacity="0.9"/>
+                        <!-- Eyes -->
+                        <circle cx="52" cy="65" r="3" fill="#334155" />
+                        <circle cx="68" cy="65" r="3" fill="#334155" />
+                        <!-- Blush -->
+                        <ellipse cx="45" cy="72" rx="4" ry="2.5" fill="#ffb6c1" opacity="0.8"/>
+                        <ellipse cx="75" cy="72" rx="4" ry="2.5" fill="#ffb6c1" opacity="0.8"/>
+                        <!-- Smile -->
+                        <path d="M 55 75 Q 60 82 65 75" fill="none" stroke="#334155" stroke-width="2.5" stroke-linecap="round"/>
+                        <!-- Stationary Arm (Left arm visually) -->
+                        <path d="M 35 110 Q 25 120 25 140" fill="none" stroke="#f8fafc" stroke-width="12" stroke-linecap="round"/>
+                        <!-- Waving Arm (Right arm visually) -->
+                        <g style="transform-origin: 85px 110px; animation: waveRightArm 1.3s ease-in-out infinite alternate;">
+                            <path d="M 85 110 Q 105 90 100 60" fill="none" stroke="#f8fafc" stroke-width="13" stroke-linecap="round"/>
+                            <circle cx="100" cy="60" r="7" fill="#ffe0bd"/>
+                        </g>
+                        <!-- Hijab Folds -->
+                        <path d="M 40 85 Q 60 115 80 85" fill="none" stroke="#e2e8f0" stroke-width="2" opacity="0.5"/>
+                    </svg>
+                </div>
+            </div>
+
+            <div class="text-center">
+                <span class="badge">Welcome to Biluhu, Gorontalo! 🌊</span>
+                <p>Have you ever joined a Panjat Pinang competition on the beach?</p>
+            </div>
+
+            <div style="background: var(--cream-card); padding: 1.5rem; border-radius: var(--radius-md); border-left: 5px solid var(--pink-main); margin-bottom: 2rem;">
+                <h3 style="color: var(--pink-dark);">🎯 Tujuan Pembelajaran</h3>
+                <p style="margin: 0; color: var(--text-dark);">
+                    Hari ini kita akan belajar menceritakan kembali pengalaman seru lomba 17 Agustus-an (Recount Text) menggunakan <strong>Time Connectives</strong> (Kata Hubung Waktu). Tujuannya agar cerita kita berurutan, jelas, dan mudah dipahami!
+                </p>
+            </div>
+
+            <p>
+                Imagine celebrating August 17th near the beautiful Biluhu beach. To tell your friends about this amazing day, you need to tell the events in order. In English, we use special words for this:
+            </p>
+            
+            <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; margin-bottom: 2rem;">
+                <span style="background: var(--pink-light); color: var(--pink-dark); padding: 0.5rem 1rem; border-radius: var(--radius-full); font-weight: bold;">First</span>
+                <span style="background: var(--green-light); color: var(--green-dark); padding: 0.5rem 1rem; border-radius: var(--radius-full); font-weight: bold;">Then</span>
+                <span style="background: var(--gray-200); color: var(--text-dark); padding: 0.5rem 1rem; border-radius: var(--radius-full); font-weight: bold;">After that</span>
+                <span style="background: #fef08a; color: #854d0e; padding: 0.5rem 1rem; border-radius: var(--radius-full); font-weight: bold;">Finally</span>
+            </div>
+
+            <div class="text-center">
+                <button onclick="navTo('learn')" class="btn btn-primary">
+                    Start Learning! 🚀
+                </button>
+            </div>
+        </section>
+
+        <!-- SECTION 2: Material (Learn) -->
+        <section id="sec-learn" class="glass-panel">
+            <h2>What are Time Connectives?</h2>
+            <p>
+                <strong>Time Connectives</strong> (Kata hubung waktu) digunakan untuk merangkai kalimat agar kejadian mengalir sesuai urutan waktu. Sangat penting saat membuat <em>Recount Text</em>.
+            </p>
+
+            <div style="background: var(--white); padding: 1.5rem; border-radius: var(--radius-md); border: 2px solid var(--pink-light); margin: 1.5rem 0;">
+                <h3 style="color: var(--pink-dark); margin-bottom: 1rem;">👀 Mari Perhatikan Perbandingan Berikut:</h3>
+                
+                <div style="display: flex; flex-direction: column; gap: 1rem;">
+                    <div style="background: var(--gray-100); padding: 1rem; border-radius: var(--radius-md); border-left: 4px solid var(--gray-300);">
+                        <span class="badge" style="background: var(--gray-300); color: var(--text-dark); margin-bottom: 0.5rem;">Tanpa Kata Hubung (Kaku)</span>
+                        <p style="margin: 0; color: var(--text-dark);">"We arrived at Biluhu beach. We played tarik tambang. We ate ikan bakar. We went home."</p>
+                    </div>
+                    
+                    <div style="background: var(--green-light); padding: 1rem; border-radius: var(--radius-md); border-left: 4px solid var(--green-main);">
+                        <span class="badge" style="margin-bottom: 0.5rem;">Dengan Time Connectives (Lebih Natural)</span>
+                        <p style="margin: 0; color: var(--text-dark);">"<strong style="color: var(--green-dark);">First,</strong> we arrived at Biluhu beach. <strong style="color: var(--green-dark);">Then,</strong> we played tarik tambang. <strong style="color: var(--green-dark);">After that,</strong> we ate ikan bakar. <strong style="color: var(--green-dark);">Finally,</strong> we went home."</p>
+                    </div>
+                </div>
+                
+                <p style="margin-top: 1rem; margin-bottom: 0; font-size: 0.95rem; color: var(--text-dark);">
+                    Lihat perbedaannya? <strong>Time connectives</strong> berfungsi seperti jembatan yang menghubungkan satu kejadian dengan kejadian berikutnya. Ini membuat teman yang mendengarkan ceritamu bisa membayangkan urutan kejadiannya dengan jelas!
+                </p>
+            </div>
+
+            <div class="grid-3 mb-8" style="margin-bottom: 2rem;">
+                <div class="card-mini">
+                    <h3 style="color: var(--pink-dark);">1. Beginning</h3>
+                    <p style="font-size: 0.9rem;">Untuk memulai cerita.</p>
+                    <ul style="list-style: none; color: var(--pink-main); font-weight: bold;">
+                        <li>• First, (Pertama-tama,)</li>
+                        <li>• In the beginning,</li>
+                    </ul>
+                </div>
+                <div class="card-mini">
+                    <h3 style="color: var(--green-dark);">2. Middle</h3>
+                    <p style="font-size: 0.9rem;">Kejadian selanjutnya.</p>
+                    <ul style="list-style: none; color: var(--green-main); font-weight: bold;">
+                        <li>• Then, (Lalu,)</li>
+                        <li>• Next, (Selanjutnya,)</li>
+                        <li>• Suddenly, (Tiba-tiba,)</li>
+                    </ul>
+                </div>
+                <div class="card-mini">
+                    <h3 style="color: #854d0e;">3. Ending</h3>
+                    <p style="font-size: 0.9rem;">Menutup cerita.</p>
+                    <ul style="list-style: none; color: #eab308; font-weight: bold;">
+                        <li>• Finally, (Akhirnya,)</li>
+                        <li>• In the end,</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Interactive Scene Component -->
+            <h3>Interactive Story: A Day at Biluhu Beach 🏖️</h3>
+            <p>Click the buttons below to see how the story progresses!</p>
+            
+            <div class="interactive-scene-container">
+                <div class="scene-display" id="scene-visual">
+                    <div class="scene-emoji" id="scene-emoji">🌅</div>
+                </div>
+                <div class="scene-controls" id="scene-tabs">
+                    <button class="scene-btn active" onclick="changeScene(0)">1. Start</button>
+                    <button class="scene-btn" onclick="changeScene(1)">2. Game 1</button>
+                    <button class="scene-btn" onclick="changeScene(2)">3. Game 2</button>
+                    <button class="scene-btn" onclick="changeScene(3)">4. Finish</button>
+                </div>
+                <div class="scene-description">
+                    <p id="scene-text" style="margin:0; font-size: 1.2rem; color: var(--text-dark);">
+                        <span class="highlight" style="color: var(--pink-main)">First,</span> we gathered at the beautiful Biluhu beach in the morning.
+                    </p>
+                </div>
+            </div>
+
+            <div class="flex-between mt-8">
+                <button onclick="navTo('intro')" class="btn btn-outline">Back</button>
+                <button onclick="navTo('practice')" class="btn btn-primary">Next: Let's Practice!</button>
+            </div>
+        </section>
+
+        <!-- SECTION 3: Interactive Practice -->
+        <section id="sec-practice" class="glass-panel">
+            <h2>🧩 Practice: Arrange the Story!</h2>
+            <p>Drag and drop the correct <strong>Time Connectives</strong> to complete the story about the Sack Race (Lomba Balap Karung).</p>
+
+            <div class="word-bank" id="word-bank">
+                <div class="draggable-item" draggable="true" id="drag-first">First</div>
+                <div class="draggable-item" draggable="true" id="drag-finally">Finally</div>
+                <div class="draggable-item" draggable="true" id="drag-then">Then</div>
+                <div class="draggable-item" draggable="true" id="drag-suddenly">Suddenly</div>
+            </div>
+
+            <div class="story-board">
+                <div class="story-line">
+                    <span style="color: var(--gray-300); font-weight: bold;">1.</span>
+                    <div class="drop-zone" id="drop-1" data-answer="First">Drop here</div>
+                    <span>, I stepped into the sack.</span>
+                </div>
+                <div class="story-line">
+                    <span style="color: var(--gray-300); font-weight: bold;">2.</span>
+                    <div class="drop-zone" id="drop-2" data-answer="Then">Drop here</div>
+                    <span>, the referee blew the whistle and we jumped.</span>
+                </div>
+                <div class="story-line">
+                    <span style="color: var(--gray-300); font-weight: bold;">3.</span>
+                    <div class="drop-zone" id="drop-3" data-answer="Suddenly">Drop here</div>
+                    <span>, my friend tripped and fell!</span>
+                </div>
+                <div class="story-line">
+                    <span style="color: var(--gray-300); font-weight: bold;">4.</span>
+                    <div class="drop-zone" id="drop-4" data-answer="Finally">Drop here</div>
+                    <span>, I crossed the finish line and won.</span>
+                </div>
+            </div>
+
+            <div id="practice-feedback" class="feedback-box"></div>
+
+            <div class="flex-between mt-8">
+                <button onclick="navTo('learn')" class="btn btn-outline">Back</button>
+                <button onclick="checkPractice()" class="btn btn-secondary" id="btn-check">Check Answers</button>
+                <button onclick="navTo('quiz')" class="btn btn-primary" id="btn-next-quiz" style="display:none;">Go to Quiz!</button>
+            </div>
+        </section>
+
+        <!-- SECTION 4: Flashcard Quiz -->
+        <section id="sec-quiz" class="glass-panel">
+            <div class="text-center">
+                <h2>📝 Final Challenge: Flashcards!</h2>
+                <p>Answer correctly to flip the card and read the explanation.</p>
+                <div class="badge" id="quiz-progress">Question 1 of 5</div>
+            </div>
+
+            <div class="flashcard-wrapper" id="flashcard-container">
+                <div class="flashcard" id="quiz-card">
+                    <!-- Front of card (Question) -->
+                    <div class="card-face card-front">
+                        <h3 id="card-question" style="color: var(--text-dark); margin-bottom: 1.5rem;">Question text goes here</h3>
+                        <div class="quiz-options" id="card-options">
+                            <!-- Options injected here via JS -->
+                        </div>
+                    </div>
+                    
+                    <!-- Back of card (Feedback & Review) -->
+                    <div class="card-face card-back">
+                        <div style="font-size: 3rem; margin-bottom: 1rem;" id="card-result-icon">✅</div>
+                        <h3 id="card-result-title" style="color: var(--green-dark);">Correct!</h3>
+                        <p id="card-review-text" style="color: var(--text-dark); background: var(--white); padding: 1rem; border-radius: var(--radius-md); margin-bottom: 1.5rem; text-align: left; width: 100%;">
+                            Explanation goes here.
+                        </p>
+                        <button onclick="nextCard()" class="btn btn-primary">Next Question ➔</button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Final Score Display (Hidden initially) -->
+            <div id="final-score-screen" style="display:none; text-align: center; padding: 2rem;">
+                <div style="font-size: 5rem; margin-bottom: 1rem;">🏆</div>
+                <h2>Quiz Complete, <span id="display-student-name"></span>!</h2>
+                <h1 style="color: var(--pink-main); font-size: 3rem; margin: 1rem 0;" id="final-score-text">100/100</h1>
+                <p id="final-score-message">Excellent job!</p>
+                
+                <div id="saving-status" style="margin: 1.5rem 0; padding: 1rem; background: var(--blue-light); color: var(--blue-dark); border-radius: var(--radius-md); font-weight: bold;">
+                    ⏳ Saving your score to the teacher's book...
+                </div>
+
+                <button onclick="resetApp()" class="btn btn-secondary mt-4">Play Again</button>
+            </div>
+
+            <div class="flex-between mt-8" id="quiz-nav-btns">
+                <button onclick="navTo('practice')" class="btn btn-outline">Back</button>
+            </div>
+        </section>
+
+    </div>
+
+    <script>
+        // --- GLOBAL VARIABLES ---
+        let currentStudentName = "";
+        let currentStudentClass = "";
+        let studentAnswers = []; // Menyimpan log jawaban siswa
+        // ⚠️ TEACHER INSTRUCTION: Paste your Google Apps Script Web App URL here!
+        const GOOGLE_SHEET_WEBAPP_URL = "https://script.google.com/macros/s/AKfycbwMCOz7chth4Ceq0yUABn2-yGBhnF-4X5gFG-jJPJIqlsIuJbyYtrvO4U1ym5VmdbdF/exec"; 
+        
+        // --- Navigation Logic ---
+        const sections = ['intro', 'learn', 'practice', 'quiz'];
+
+        function startModule() {
+            const nameInput = document.getElementById('student-name').value.trim();
+            const classInput = document.getElementById('student-class').value.trim();
+            
+            if(nameInput === "" || classInput === "") {
+                document.getElementById('name-error').style.display = "block";
+                return;
+            }
+            
+            currentStudentName = nameInput;
+            currentStudentClass = classInput;
+            document.getElementById('student-modal').style.display = "none";
+        }
+        
+        function navTo(targetId) {
+            sections.forEach(sec => {
+                document.getElementById('sec-' + sec).classList.remove('active');
+            });
+            
+            document.getElementById('sec-' + targetId).classList.add('active');
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+            updateProgressBar(targetId);
+        }
+
+        function updateProgressBar(currentId) {
+            const index = sections.indexOf(currentId);
+            const progress = (index / (sections.length - 1)) * 100;
+            document.getElementById('progress-bar').style.width = `${progress}%`;
+
+            sections.forEach((sec, i) => {
+                const tab = document.getElementById('tab-' + sec);
+                if (i <= index) {
+                    tab.classList.add('active');
+                } else {
+                    tab.classList.remove('active');
+                }
+            });
+        }
+
+        // --- Interactive Scene Logic ---
+        const sceneData = [
+            { 
+                word: "First,", 
+                text: "we gathered at the beautiful Biluhu beach in the morning.", 
+                emoji: "🌅", 
+                color: "var(--pink-main)", 
+                bg: "linear-gradient(to bottom, #87CEEB, #e0f6ff)"
+            },
+            { 
+                word: "Then,", 
+                text: "we joined the Kerupuk Eating race. The sea breeze made it hard!", 
+                emoji: "🎐👦", 
+                color: "var(--green-main)", 
+                bg: "linear-gradient(to bottom, #4ade80, #dcfce7)"
+            },
+            { 
+                word: "After that,", 
+                text: "we watched the Panjat Pinang. It was so funny seeing people slide.", 
+                emoji: "🌴🧗‍♂️", 
+                color: "var(--green-dark)", 
+                bg: "linear-gradient(to bottom, #fbbf24, #fef3c7)"
+            },
+            { 
+                word: "Finally,", 
+                text: "we ate traditional snacks while enjoying the sunset. A great day!", 
+                emoji: "🥟🌇", 
+                color: "#eab308", 
+                bg: "linear-gradient(to bottom, #f472b6, #fce7f3)"
+            }
+        ];
+
+        function changeScene(index) {
+            // Update tabs
+            const tabs = document.querySelectorAll('.scene-btn');
+            tabs.forEach(t => t.classList.remove('active'));
+            tabs[index].classList.add('active');
+
+            // Update visual with small animation
+            const visual = document.getElementById('scene-visual');
+            const emoji = document.getElementById('scene-emoji');
+            const desc = document.getElementById('scene-text');
+            
+            emoji.style.animation = 'none';
+            void emoji.offsetWidth; // trigger reflow
+            
+            visual.style.background = sceneData[index].bg;
+            emoji.textContent = sceneData[index].emoji;
+            emoji.style.animation = 'bounceIn 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275)';
+            
+            desc.innerHTML = `<span class="highlight" style="color: ${sceneData[index].color}">${sceneData[index].word}</span> ${sceneData[index].text}`;
+        }
+
+        // --- Drag and Drop Logic ---
+        const draggables = document.querySelectorAll('.draggable-item');
+        const dropZones = document.querySelectorAll('.drop-zone');
+        let draggedItem = null;
+
+        draggables.forEach(item => {
+            item.addEventListener('dragstart', function() {
+                draggedItem = this;
+                setTimeout(() => this.style.opacity = '0.5', 0);
+            });
+            item.addEventListener('dragend', function() {
+                setTimeout(() => this.style.opacity = '1', 0);
+                draggedItem = null;
+            });
+        });
+
+        dropZones.forEach(zone => {
+            zone.addEventListener('dragover', e => {
+                e.preventDefault();
+                zone.classList.add('drag-over');
+            });
+            zone.addEventListener('dragleave', () => {
+                zone.classList.remove('drag-over');
+            });
+            zone.addEventListener('drop', function(e) {
+                e.preventDefault();
+                this.classList.remove('drag-over');
+                
+                if (draggedItem) {
+                    // If zone already has an item, return it to bank
+                    if (this.classList.contains('filled')) {
+                        const oldWord = this.textContent;
+                        document.querySelectorAll('.draggable-item').forEach(d => {
+                            if(d.textContent === oldWord) d.style.display = 'block';
+                        });
+                    }
+
+                    const word = draggedItem.textContent;
+                    this.textContent = word;
+                    this.classList.add('filled');
+                    draggedItem.style.display = 'none';
+                }
+            });
+            
+            // Click to remove
+            zone.addEventListener('click', function() {
+                if (this.classList.contains('filled')) {
+                    const word = this.textContent;
+                    this.textContent = 'Drop here';
+                    this.classList.remove('filled');
+                    this.style.borderColor = 'var(--gray-300)'; // reset correct/incorrect colors
+                    this.style.background = 'var(--gray-100)';
+                    document.querySelectorAll('.draggable-item').forEach(d => {
+                        if(d.textContent === word) d.style.display = 'block';
+                    });
+                }
+            });
+        });
+
+        function checkPractice() {
+            let correct = 0;
+            let allFilled = true;
+
+            dropZones.forEach(zone => {
+                if (!zone.classList.contains('filled')) {
+                    allFilled = false;
+                } else if (zone.textContent === zone.getAttribute('data-answer')) {
+                    correct++;
+                    zone.style.borderColor = 'var(--green-main)';
+                    zone.style.background = 'var(--green-light)';
+                    zone.style.color = 'var(--green-dark)';
+                } else {
+                    zone.style.borderColor = 'red';
+                    zone.style.background = '#fee2e2';
+                    zone.style.color = 'red';
+                }
+            });
+
+            const fb = document.getElementById('practice-feedback');
+            fb.classList.add('show');
+
+            if (!allFilled) {
+                fb.style.background = '#fef3c7';
+                fb.style.color = '#92400e';
+                fb.textContent = 'Please fill all the boxes! (Click a word to return it)';
+            } else if (correct === 4) {
+                fb.style.background = 'var(--green-light)';
+                fb.style.color = 'var(--green-dark)';
+                fb.textContent = 'Awesome! The story is perfectly arranged. 🎉';
+                document.getElementById('btn-check').style.display = 'none';
+                document.getElementById('btn-next-quiz').style.display = 'inline-flex';
+            } else {
+                fb.style.background = '#fee2e2';
+                fb.style.color = '#991b1b';
+                fb.textContent = 'Almost! Check the red boxes. Hint: "First" starts the story.';
+            }
+        }
+
+        // --- Flashcard Quiz Logic ---
+        const quizData = [
+            {
+                q: "Which Time Connective is best to END a recount story?",
+                options: ["First", "Finally", "Next", "Suddenly"],
+                ans: 1,
+                review: "<strong>Finally</strong> (Akhirnya) digunakan untuk menutup atau mengakhiri urutan peristiwa dalam cerita."
+            },
+            {
+                q: "'____, we prepared the sack and rope.' (To start the story)",
+                options: ["In the beginning", "After that", "Finally", "Then"],
+                ans: 0,
+                review: "Untuk memulai (awal) cerita, kita menggunakan <strong>In the beginning</strong> (Pada mulanya) atau <em>First</em>."
+            },
+            {
+                q: "What is the function of words like 'First, Then, Finally'?",
+                options: ["To show locations", "To show the sequence of events", "To describe feelings", "To name people"],
+                ans: 1,
+                review: "Fungsi utama Time Connectives adalah menunjukkan urutan peristiwa (<strong>sequence of events</strong>) agar cerita runtut."
+            },
+            {
+                q: "You are climbing Panjat Pinang. Mendadak temanmu terpeleset. Kata hubung apa yang tepat?",
+                options: ["At last", "First", "Suddenly", "In the end"],
+                ans: 2,
+                review: "Untuk kejadian yang terjadi secara tiba-tiba/mendadak di tengah cerita, gunakan <strong>Suddenly</strong>."
+            },
+            {
+                q: "Arrange: (1) Then - (2) the game - (3) started.",
+                options: ["1 - 2 - 3", "2 - 3 - 1", "3 - 2 - 1", "1 - 3 - 2"],
+                ans: 0,
+                review: "Susunan yang tepat: <strong>Then the game started</strong>. Time connective selalu diletakkan di awal klausa untuk merangkai kejadian."
+            }
+        ];
+
+        let currentQ = 0;
+        let quizScore = 0;
+        let answeredCurrent = false;
+
+        function loadCard() {
+            const data = quizData[currentQ];
+            document.getElementById('quiz-progress').textContent = `Question ${currentQ + 1} of ${quizData.length}`;
+            document.getElementById('card-question').textContent = data.q;
+            
+            const optionsContainer = document.getElementById('card-options');
+            optionsContainer.innerHTML = '';
+            
+            data.options.forEach((opt, index) => {
+                const btn = document.createElement('button');
+                btn.className = 'quiz-option-btn';
+                btn.textContent = opt;
+                btn.onclick = () => selectAnswer(index);
+                optionsContainer.appendChild(btn);
+            });
+            
+            // Reset card state
+            document.getElementById('quiz-card').classList.remove('flipped');
+            answeredCurrent = false;
+        }
+
+        function selectAnswer(selectedIndex) {
+            if(answeredCurrent) return; // Prevent double clicking
+            answeredCurrent = true;
+
+            const data = quizData[currentQ];
+            const isCorrect = (selectedIndex === data.ans);
+            
+            if(isCorrect) quizScore += 20;
+
+            // Merekam jawaban siswa untuk dikirim ke database
+            studentAnswers.push({
+                question: data.q,
+                selected: data.options[selectedIndex],
+                isCorrect: isCorrect
+            });
+
+            // Prepare back of card
+            const icon = document.getElementById('card-result-icon');
+            const title = document.getElementById('card-result-title');
+            
+            if(isCorrect) {
+                icon.textContent = '🎉';
+                title.textContent = 'Correct!';
+                title.style.color = 'var(--green-dark)';
+            } else {
+                icon.textContent = '💡';
+                title.textContent = 'Not quite...';
+                title.style.color = 'var(--pink-dark)';
+            }
+
+            document.getElementById('card-review-text').innerHTML = data.review;
+            
+            // Flip card
+            document.getElementById('quiz-card').classList.add('flipped');
+        }
+
+        function nextCard() {
+            currentQ++;
+            if(currentQ < quizData.length) {
+                // Quick flip back and load next
+                document.getElementById('quiz-card').classList.remove('flipped');
+                setTimeout(loadCard, 400); // wait for flip animation half-way
+            } else {
+                showFinalScore();
+            }
+        }
+
+        function showFinalScore() {
+            document.getElementById('flashcard-container').style.display = 'none';
+            document.getElementById('quiz-nav-btns').style.display = 'none';
+            document.getElementById('quiz-progress').style.display = 'none';
+            
+            const scoreScreen = document.getElementById('final-score-screen');
+            scoreScreen.style.display = 'block';
+            scoreScreen.style.animation = 'fadeIn 0.8s';
+            
+            // Menampilkan nama beserta kelas
+            document.getElementById('display-student-name').textContent = `${currentStudentName} (${currentStudentClass})`;
+            document.getElementById('final-score-text').textContent = `${quizScore}/100`;
+            
+            const msg = document.getElementById('final-score-message');
+            if(quizScore === 100) {
+                msg.textContent = "Perfect! You are an expert storyteller! 🌟";
+            } else if (quizScore >= 60) {
+                msg.textContent = "Good job! Keep practicing to master it. 👍";
+            } else {
+                msg.textContent = "Don't give up! Let's review the material again. 💪";
+            }
+
+            // Trigger saving to spreadsheet
+            saveToSpreadsheet(currentStudentName, quizScore);
+        }
+
+        function saveToSpreadsheet(name, score) {
+            const statusDiv = document.getElementById('saving-status');
+            
+            // If the teacher hasn't set the URL yet, simulate success for the demo
+            if(GOOGLE_SHEET_WEBAPP_URL === "") {
+               setTimeout(() => {
+                   statusDiv.style.background = "var(--green-light)";
+                   statusDiv.style.color = "var(--green-dark)";
+                   statusDiv.textContent = "✅ Score saved locally! (Note: Teacher needs to add valid Google Script URL to save to Cloud)";
+               }, 1500);
+               return;
+            }
+
+            statusDiv.style.background = "var(--blue-light)";
+            statusDiv.style.color = "var(--blue-dark)";
+            statusDiv.textContent = "⏳ Menyimpan jawabanmu ke database guru...";
+
+            // Menghitung jumlah benar dan salah
+            let correctCount = studentAnswers.filter(a => a.isCorrect).length;
+            let wrongCount = studentAnswers.length - correctCount;
+
+            // Membuat FormData menggunakan URLSearchParams agar sesuai dengan format x-www-form-urlencoded
+            const formData = new URLSearchParams();
+            formData.append('name', name);
+            formData.append('kelas', currentStudentClass);
+            formData.append('score', score);
+            formData.append('correct', correctCount);
+            formData.append('wrong', wrongCount);
+            formData.append('answers', JSON.stringify(studentAnswers));
+            formData.append('quizData', JSON.stringify(quizData)); // Mengirim data kuis untuk membuat sheet "Soal"
+
+            // Send to Google Apps Script
+            fetch(GOOGLE_SHEET_WEBAPP_URL, {
+                method: 'POST',
+                body: formData,
+                mode: 'no-cors' // Crucial for bypassing CORS issues with Google Scripts
+            })
+            .then(response => {
+                // Because of 'no-cors', the response is opaque, we just assume success if it didn't throw an error
+                statusDiv.style.background = "var(--green-light)";
+                statusDiv.style.color = "var(--green-dark)";
+                statusDiv.textContent = "✅ Score successfully saved to the teacher's book!";
+            })
+            .catch(error => {
+                console.error('Error!', error.message);
+                statusDiv.style.background = "#fee2e2";
+                statusDiv.style.color = "#991b1b";
+                statusDiv.textContent = "❌ Failed to save score. Please tell your teacher.";
+            });
+        }
+
+        function resetApp() {
+            // Reset variables
+            currentQ = 0;
+            quizScore = 0;
+            studentAnswers = []; // Reset array jawaban
+            
+            // Reset UI
+            document.getElementById('flashcard-container').style.display = 'block';
+            document.getElementById('quiz-nav-btns').style.display = 'flex';
+            document.getElementById('quiz-progress').style.display = 'inline-block';
+            document.getElementById('final-score-screen').style.display = 'none';
+            
+            loadCard();
+            navTo('intro');
+        }
+
+        // Initialize App
+        window.onload = () => {
+            loadCard();
+            changeScene(0); // init scene
+        };
+
+    </script>
+</body>
+</html>
